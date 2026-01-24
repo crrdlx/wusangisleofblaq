@@ -177,15 +177,12 @@
 <script>
     let chart;
     const START_DATE = new Date(2025, 10, 18);
-    START_DATE.setHours(0,0,0,0);
     const TODAY = new Date();
     TODAY.setHours(0,0,0,0);
 
     async function fetchHbitStats() {
         try {
             const response = await fetch('https://engine-history.hive-engine.com/accountHistory?account=hivebits&symbol=HBIT&limit=100');
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
             const history = await response.json();
             const dailyCounts = {};
             const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
@@ -205,8 +202,6 @@
             const totalLastWeek = Object.values(dailyCounts).reduce((a, b) => a + b, 0);
             const avg = Math.round(totalLastWeek / Object.keys(dailyCounts).length);
 
-            console.log('HBIT Data fetched:', {yesterday, triesYesterday, avg, dates: dates.slice(0,3)});
-            
             document.getElementById('yesterdayTries').innerText = triesYesterday.toLocaleString();
             document.getElementById('weeklyAvg').innerText = avg.toLocaleString();
             
@@ -216,7 +211,6 @@
                 calculate();
             }
         } catch (e) {
-            console.error('Failed to fetch HBIT stats:', e);
             document.getElementById('yesterdayTries').innerText = "33 (Manual)";
             document.getElementById('weeklyAvg').innerText = "33 (Manual)";
         }
@@ -324,30 +318,25 @@
 
         const horizonDays = (rarity * 2.5) / daily;
         const expectedDays = rarity / daily;
-        const todayDays = Math.floor((TODAY - START_DATE) / (1000 * 60 * 60 * 24));
+        const todayDays = (TODAY - START_DATE) / (1000 * 60 * 60 * 24);
         const steps = 80;
         const stepSize = horizonDays / steps;
 
-        // Track if we've added today's marker
-        let todayAdded = false;
-
         for (let i = 0; i <= horizonDays; i += stepSize) {
-            const dayNumber = Math.round(i);
             const d = new Date(START_DATE);
-            d.setDate(d.getDate() + dayNumber);
-            const currentProb = (1 - Math.pow(1 - p, dayNumber * daily)) * 100;
+            d.setDate(d.getDate() + i);
+            const currentProb = (1 - Math.pow(1 - p, i * daily)) * 100;
             
             // Labels now include the year for full date display on mouseover
             labels.push(d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'}));
             dataValues.push(currentProb.toFixed(1));
 
-            const isToday = Math.abs(dayNumber - todayDays) <= 1;
-            const isExpected = Math.abs(dayNumber - expectedDays) < 2;
+            const isToday = Math.abs(i - todayDays) < (stepSize / 2);
+            const isExpected = Math.abs(i - expectedDays) < (stepSize / 2);
 
-            if (isToday && !todayAdded) {
+            if (isToday) {
                 radii.push(6);
                 colors.push('#ef4444');
-                todayAdded = true;
             } else if (isExpected) {
                 radii.push(6);
                 colors.push('#3b82f6');
