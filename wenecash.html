@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,14 +10,17 @@
         :root {
             --bg: #f8fafc;
             --card: #ffffff;
-            --accent: #f7931a; /* Bitcoin Orange */
+            --accent: #f7931a;
+            /* Bitcoin Orange */
             --accent-glow: rgba(247, 147, 26, 0.1);
             --text-main: #1e293b;
             --text-muted: #64748b;
             --border: #e2e8f0;
             --activity: #6366f1;
-            --expected: #3b82f6; /* Blue Milestone */
-            --today: #ef4444;    /* Red Today Marker */
+            --expected: #3b82f6;
+            /* Blue Milestone */
+            --today: #ef4444;
+            /* Red Today Marker */
         }
 
         body {
@@ -28,13 +32,38 @@
             line-height: 1.5;
         }
 
-        .container { max-width: 1100px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 40px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #0f172a; font-weight: 800; }
-        a { color: var(--accent); text-decoration: none; font-weight: 600; }
-        a:hover { text-decoration: underline; }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
 
-        .dashboard-grid { display: grid; grid-template-columns: 350px 1fr; gap: 24px; }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+            font-weight: 800;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 24px;
+        }
 
         .card {
             background: var(--card);
@@ -45,9 +74,18 @@
             margin-bottom: 24px;
         }
 
-        .input-group { margin-bottom: 20px; }
-        label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--text-main); margin-bottom: 8px; }
-        
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
         input {
             width: 100%;
             padding: 10px;
@@ -64,315 +102,421 @@
             font-weight: 600;
         }
 
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
-        .stat-box { background: #f1f5f9; padding: 16px; border-radius: 8px; text-align: center; }
-        .stat-value { font-size: 1.25rem; font-weight: 700; color: var(--accent); }
-        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
 
-        .activity-box { border-left: 4px solid var(--activity); padding-left: 15px; margin-top: 10px; }
-        .activity-val { font-weight: 700; color: var(--activity); }
+        .stat-box {
+            background: #f1f5f9;
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.95rem; }
-        th { text-align: left; color: var(--text-muted); padding-bottom: 12px; border-bottom: 2px solid var(--border); }
-        td { padding: 14px 0; border-bottom: 1px solid var(--border); }
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
 
-        .badge { padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-        .badge-pending { background: var(--accent-glow); color: var(--accent); }
-        .badge-passed { background: #e2e8f0; color: #64748b; }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
 
-        .legend { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; font-size: 0.8rem; justify-content: center; }
-        .legend-item { display: flex; align-items: center; gap: 5px; }
-        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .activity-box {
+            border-left: 4px solid var(--activity);
+            padding-left: 15px;
+            margin-top: 10px;
+        }
 
-        .chart-container { height: 350px; margin-top: 20px; }
+        .activity-val {
+            font-weight: 700;
+            color: var(--activity);
+        }
 
-        @media (max-width: 850px) { .dashboard-grid { grid-template-columns: 1fr; } }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        th {
+            text-align: left;
+            color: var(--text-muted);
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-pending {
+            background: var(--accent-glow);
+            color: var(--accent);
+        }
+
+        .badge-passed {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .chart-container {
+            height: 350px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 850px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <header>
-        <h1>Wusang Ecash Treasure Finder Calculator</h1>
-        <p style="color: var(--text-muted)">Forecasting the probability of finding the <a href="https://wusang.vercel.app" target="_blank">Wusang</a> ecash treasure chest. The first ecash cache was found <a href="https://peakd.com/@hivebits/re-re-crrdlx-t9a2pw-20260122t181550z" target="_blank">Nov. 18, 2025</a>.</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Wusang Ecash Treasure Finder Calculator</h1>
+            <p style="color: var(--text-muted)">Forecasting the probability of finding the <a
+                    href="https://wusang.vercel.app" target="_blank">Wusang</a> ecash treasure chest. The first ecash
+                cache was found <a href="https://peakd.com/@hivebits/re-re-crrdlx-t9a2pw-20260122t181550z"
+                    target="_blank">Nov. 18, 2025</a>.</p>
+        </header>
 
-    <div class="dashboard-grid">
-        <div class="sidebar">
-            <div class="card">
-                <div class="input-group">
-                    <label>Start Date (Fixed)</label>
-                    <input type="text" value="Nov 18, 2025" class="readonly-field" readonly>
-                </div>
-                <div class="input-group">
-                    <label>Players Per Day</label>
-                    <input type="number" id="dailyPlays" value="33">
-                </div>
-                <div class="input-group">
-                    <label>Rarity (1 in X)</label>
-                    <input type="number" id="rarity" value="10000">
-                </div>
-                <div class="input-group">
-                    <label>Check Specific Date</label>
-                    <input type="date" id="targetDate">
-                </div>
-            </div>
-
-            <div class="card">
-                <label style="color: var(--activity)">Live HBIT Activity - the number of Wusang tries per day to find the ecash treasure.</label>
-                <div class="activity-box">
-                    <div style="font-size: 0.85rem; color: var(--text-muted)">Yesterday's Tries:</div>
-                    <div class="activity-val" id="yesterdayTries">Loading...</div>
-                </div>
-                <div class="activity-box" style="margin-top: 15px;">
-                    <div style="font-size: 0.85rem; color: var(--text-muted)">7-Day Average:</div>
-                    <div class="activity-val" id="weeklyAvg">Loading...</div>
-                </div>
-                <p style="font-size: 0.7rem; color: var(--text-muted); margin-top: 15px;">
-                    Data reflects <a href="https://he.dtools.dev/@hivebits?symbol=HBIT" target="_blank">HBIT mined per day</a>.
-                </p>
-            </div>
-            
-            <div class="card">
-                <div class="stat-label" style="margin-bottom: 12px; font-weight: 700;">Check Specific Date: <span id="dynamicDateLabel">Selected Date</span></div>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-label">Total Tries</div>
-                        <div id="outTries" class="stat-value">—</div>
+        <div class="dashboard-grid">
+            <div class="sidebar">
+                <div class="card">
+                    <div class="input-group">
+                        <label>Start Date (Fixed)</label>
+                        <input type="text" value="Nov 18, 2025" class="readonly-field" readonly>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Find Chance</div>
-                        <div id="outProb" class="stat-value">—</div>
+                    <div class="input-group">
+                        <label>Players Per Day</label>
+                        <input type="number" id="dailyPlays" value="33">
+                    </div>
+                    <div class="input-group">
+                        <label>Rarity (1 in X)</label>
+                        <input type="number" id="rarity" value="10000">
+                    </div>
+                    <div class="input-group">
+                        <label>Check Specific Date</label>
+                        <input type="date" id="targetDate">
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="card">
-            <h3 style="margin-top:0; color: #0f172a;">Likely Discovery Milestones</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Probability</th>
-                        <th>Estimated Date</th>
-                        <th>Plays Needed</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="milestoneTable"></tbody>
-            </table>
+                <div class="card">
+                    <label style="color: var(--activity)">Live HBIT Activity - the number of Wusang tries per day to
+                        find the ecash treasure.</label>
+                    <div class="activity-box">
+                        <div style="font-size: 0.85rem; color: var(--text-muted)">Yesterday's Tries:</div>
+                        <div class="activity-val" id="yesterdayTries">Loading...</div>
+                    </div>
+                    <div class="activity-box" style="margin-top: 15px;">
+                        <div style="font-size: 0.85rem; color: var(--text-muted)">7-Day Average:</div>
+                        <div class="activity-val" id="weeklyAvg">Loading...</div>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin-top: 15px;">
+                        Data reflects <a href="https://he.dtools.dev/@hivebits?symbol=HBIT" target="_blank">HBIT mined
+                            per day</a>.
+                    </p>
+                </div>
 
-            <div class="chart-container">
-                <canvas id="probChart"></canvas>
+                <div class="card">
+                    <div class="stat-label" style="margin-bottom: 12px; font-weight: 700;">Check Specific Date: <span
+                            id="dynamicDateLabel">Selected Date</span></div>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-label">Total Tries</div>
+                            <div id="outTries" class="stat-value">—</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-label">Find Chance</div>
+                            <div id="outProb" class="stat-value">—</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="legend">
-                <div class="legend-item"><span class="dot" style="background:var(--accent)"></span> Probability Trend</div>
-                <div class="legend-item"><span class="dot" style="background:var(--today)"></span> Today</div>
-                <div class="legend-item"><span class="dot" style="background:var(--expected)"></span> Expected Date (63.2%)</div>
+
+            <div class="card">
+                <h3 style="margin-top:0; color: #0f172a;">Likely Discovery Milestones</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Probability</th>
+                            <th>Estimated Date</th>
+                            <th>Plays Needed</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="milestoneTable"></tbody>
+                </table>
+
+                <div class="chart-container">
+                    <canvas id="probChart"></canvas>
+                </div>
+                <div class="legend">
+                    <div class="legend-item"><span class="dot" style="background:var(--accent)"></span> Probability
+                        Trend</div>
+                    <div class="legend-item"><span class="dot" style="background:var(--today)"></span> Today</div>
+                    <div class="legend-item"><span class="dot" style="background:var(--expected)"></span> Expected Date
+                        (63.2%)</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    let chart;
-    const START_DATE = new Date(2025, 10, 18);
-    START_DATE.setHours(0,0,0,0);
-    const TODAY = new Date();
-    TODAY.setHours(0,0,0,0);
+    <script>
+        let chart;
+        const START_DATE = new Date(2025, 10, 18);
+        START_DATE.setHours(0, 0, 0, 0);
+        const TODAY = new Date();
+        TODAY.setHours(0, 0, 0, 0);
 
-    async function fetchHbitStats() {
-        try {
-            const response = await fetch('https://engine-history.hive-engine.com/accountHistory?account=hivebits&symbol=HBIT&limit=100');
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            
-            const history = await response.json();
-            const dailyCounts = {};
-            const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
-            
-            history.forEach(tx => {
-                if (tx.operation === 'tokens_issue') {
-                    const date = tx.timestamp.split('T')[0];
-                    if (new Date(tx.timestamp) > oneWeekAgo) {
-                        dailyCounts[date] = (dailyCounts[date] || 0) + 1;
+        async function fetchHbitStats() {
+            try {
+                const response = await fetch('https://history.hive-engine.com/accountHistory?account=hivebits&symbol=HBIT&limit=1000');
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                const history = await response.json();
+                const dailyCounts = {};
+                const oneWeekAgo = Date.now() - (7 * 24 * 60 * 60 * 1000);
+
+                history.forEach(tx => {
+                    if (tx.operation === 'tokens_transfer' && tx.memo && tx.memo.includes('Wusang mining')) {
+                        const ms = tx.timestamp * 1000;
+                        const date = new Date(ms).toISOString().split('T')[0];
+                        if (ms > oneWeekAgo) {
+                            dailyCounts[date] = (dailyCounts[date] || 0) + 1;
+                        }
+                    }
+                });
+
+                // Calculate stats based on strict dates (Last 7 Days)
+                const today = new Date();
+                const getStr = (d) => d.toISOString().split('T')[0];
+                const yesterdayDate = new Date(today.setDate(today.getDate() - 1));
+                const yesterdayStr = getStr(yesterdayDate);
+
+                const dailyPlays = dailyCounts[yesterdayStr] || 0;
+
+                let sum7 = 0;
+                for (let i = 0; i < 7; i++) {
+                    const d = new Date(yesterdayDate);
+                    d.setDate(d.getDate() - i);
+                    sum7 += (dailyCounts[getStr(d)] || 0);
+                }
+                const avg = Math.round(sum7 / 7);
+
+                console.log('HBIT Stats:', { yesterday: yesterdayStr, dailyPlays, avg, sum7 });
+
+                document.getElementById('yesterdayTries').innerText = dailyPlays.toLocaleString();
+                document.getElementById('weeklyAvg').innerText = avg.toLocaleString();
+
+                if (avg > 0) {
+                    document.getElementById('dailyPlays').value = avg;
+                    setTargetToMedian(avg);
+                    calculate();
+                }
+            } catch (e) {
+                console.error('Failed to fetch HBIT stats:', e);
+                document.getElementById('yesterdayTries').innerText = "33 (Manual)";
+                document.getElementById('weeklyAvg').innerText = "33 (Manual)";
+            }
+        }
+
+        function setTargetToMedian(daily) {
+            const rarity = parseFloat(document.getElementById('rarity').value) || 10000;
+            const p = 1 / rarity;
+            const nRequired = Math.log(1 - 0.5) / Math.log(1 - p);
+            const d = new Date(START_DATE);
+            d.setDate(d.getDate() + (nRequired / daily));
+            document.getElementById('targetDate').value = d.toISOString().split('T')[0];
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('probChart').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Success Probability',
+                        data: [],
+                        borderColor: '#f7931a',
+                        backgroundColor: 'rgba(247, 147, 26, 0.05)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: [],
+                        pointBackgroundColor: [],
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#1e293b',
+                            padding: 12,
+                            callbacks: {
+                                label: (context) => {
+                                    let label = `Find Chance: ${context.parsed.y}%`;
+                                    const radius = context.dataset.pointRadius[context.dataIndex];
+                                    const color = context.dataset.pointBackgroundColor[context.dataIndex];
+                                    if (radius > 0 && color === '#ef4444') return `[Current Progress] ${label}`;
+                                    if (radius > 0 && color === '#3b82f6') label = `[EXPECTED] ${label}`;
+                                    return label;
+                                },
+                                title: (context) => {
+                                    // Custom title to hide date for Today if desired, or keep it.
+                                    // User said "NOT show the date... just list it as Current"
+                                    const color = context[0].dataset.pointBackgroundColor[context[0].dataIndex];
+                                    if (color === '#ef4444') return 'Current Status';
+                                    return context[0].label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#64748b' }, grid: { display: false } },
+                        y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#f1f5f9' } }
                     }
                 }
             });
-
-            const dates = Object.keys(dailyCounts).sort().reverse();
-            const yesterday = dates[1] || dates[0];
-            const triesYesterday = dailyCounts[yesterday] || 0;
-            const totalLastWeek = Object.values(dailyCounts).reduce((a, b) => a + b, 0);
-            const avg = Math.round(totalLastWeek / Object.keys(dailyCounts).length);
-
-            console.log('HBIT Data fetched:', {yesterday, triesYesterday, avg, dates: dates.slice(0,3)});
-            
-            document.getElementById('yesterdayTries').innerText = triesYesterday.toLocaleString();
-            document.getElementById('weeklyAvg').innerText = avg.toLocaleString();
-            
-            if(avg > 0) {
-                document.getElementById('dailyPlays').value = avg;
-                setTargetToMedian(avg);
-                calculate();
-            }
-        } catch (e) {
-            console.error('Failed to fetch HBIT stats:', e);
-            document.getElementById('yesterdayTries').innerText = "33 (Manual)";
-            document.getElementById('weeklyAvg').innerText = "33 (Manual)";
-        }
-    }
-
-    function setTargetToMedian(daily) {
-        const rarity = parseFloat(document.getElementById('rarity').value) || 10000;
-        const p = 1 / rarity;
-        const nRequired = Math.log(1 - 0.5) / Math.log(1 - p);
-        const d = new Date(START_DATE);
-        d.setDate(d.getDate() + (nRequired / daily));
-        document.getElementById('targetDate').value = d.toISOString().split('T')[0];
-    }
-
-    function initChart() {
-        const ctx = document.getElementById('probChart').getContext('2d');
-        chart = new Chart(ctx, {
-            type: 'line',
-            data: { 
-                labels: [], 
-                datasets: [{ 
-                    label: 'Success Probability',
-                    data: [], 
-                    borderColor: '#f7931a', 
-                    backgroundColor: 'rgba(247, 147, 26, 0.05)', 
-                    fill: true, 
-                    tension: 0.3,
-                    pointRadius: [],
-                    pointBackgroundColor: [],
-                    pointHoverRadius: 8
-                }] 
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                interaction: { mode: 'index', intersect: false },
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#1e293b',
-                        padding: 12,
-                        callbacks: {
-                            label: (context) => {
-                                let label = `Find Chance: ${context.parsed.y}%`;
-                                const radius = context.dataset.pointRadius[context.dataIndex];
-                                const color = context.dataset.pointBackgroundColor[context.dataIndex];
-                                if (radius > 0 && color === '#ef4444') label = `[TODAY] ${label}`;
-                                if (radius > 0 && color === '#3b82f6') label = `[EXPECTED] ${label}`;
-                                return label;
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    x: { ticks: { color: '#64748b' }, grid: { display: false } },
-                    y: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#f1f5f9' } }
-                }
-            }
-        });
-    }
-
-    function calculate() {
-        const daily = parseFloat(document.getElementById('dailyPlays').value) || 1;
-        const rarity = parseFloat(document.getElementById('rarity').value) || 1;
-        const targetStr = document.getElementById('targetDate').value;
-        const target = targetStr ? new Date(targetStr + 'T12:00:00') : new Date();
-        const p = 1 / rarity;
-
-        // Update Forecast Header
-        if (targetStr) {
-            document.getElementById('dynamicDateLabel').innerText = target.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'});
         }
 
-        const diffDays = Math.max(0, Math.ceil((target - START_DATE) / (1000 * 60 * 60 * 24)));
-        const totalTries = diffDays * daily;
-        const probSuccess = (1 - Math.pow(1 - p, totalTries)) * 100;
-        document.getElementById('outTries').innerText = totalTries.toLocaleString();
-        document.getElementById('outProb').innerText = probSuccess.toFixed(2) + '%';
+        function calculate() {
+            const daily = parseFloat(document.getElementById('dailyPlays').value) || 1;
+            const rarity = parseFloat(document.getElementById('rarity').value) || 1;
+            const targetStr = document.getElementById('targetDate').value;
+            const target = targetStr ? new Date(targetStr + 'T12:00:00') : new Date();
+            const p = 1 / rarity;
 
-        const milestones = [
-            { label: '50% (Median)', p: 0.50 },
-            { label: '63.2% (Expected)', p: 0.6321 },
-            { label: '90% (High Prob)', p: 0.90 }
-        ];
+            // Update Forecast Header
+            if (targetStr) {
+                document.getElementById('dynamicDateLabel').innerText = target.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+            }
 
-        let html = '';
-        milestones.forEach(m => {
-            const nRequired = Math.log(1 - m.p) / Math.log(1 - p);
-            const d = new Date(START_DATE);
-            d.setDate(d.getDate() + (nRequired / daily));
-            const isPast = d < TODAY;
-            html += `<tr>
+            const diffDays = Math.max(0, Math.ceil((target - START_DATE) / (1000 * 60 * 60 * 24)));
+            const totalTries = diffDays * daily;
+            const probSuccess = (1 - Math.pow(1 - p, totalTries)) * 100;
+            document.getElementById('outTries').innerText = totalTries.toLocaleString();
+            document.getElementById('outProb').innerText = probSuccess.toFixed(2) + '%';
+
+            const milestones = [
+                { label: '50% (Median)', p: 0.50 },
+                { label: '63.2% (Expected)', p: 0.6321 },
+                { label: '90% (High Prob)', p: 0.90 }
+            ];
+
+            let html = '';
+            milestones.forEach(m => {
+                const nRequired = Math.log(1 - m.p) / Math.log(1 - p);
+                const d = new Date(START_DATE);
+                d.setDate(d.getDate() + (nRequired / daily));
+                const isPast = d < TODAY;
+                html += `<tr>
                 <td style="font-weight:600">${m.label}</td>
-                <td>${d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'})}</td>
+                <td>${d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}</td>
                 <td>${Math.floor(nRequired).toLocaleString()}</td>
                 <td><span class="badge ${isPast ? 'badge-passed' : 'badge-pending'}">${isPast ? 'Passed' : 'Pending'}</span></td>
             </tr>`;
-        });
-        document.getElementById('milestoneTable').innerHTML = html;
+            });
+            document.getElementById('milestoneTable').innerHTML = html;
 
-        const labels = [];
-        const dataValues = [];
-        const radii = [];
-        const colors = [];
+            const labels = [];
+            const dataValues = [];
+            const radii = [];
+            const colors = [];
 
-        const horizonDays = (rarity * 2.5) / daily;
-        const expectedDays = rarity / daily;
-        const todayDays = Math.floor((TODAY - START_DATE) / (1000 * 60 * 60 * 24));
-        const steps = 80;
-        const stepSize = horizonDays / steps;
+            const horizonDays = (rarity * 2.5) / daily;
+            const expectedDays = rarity / daily;
+            const targetDays = (TODAY - START_DATE) / (1000 * 60 * 60 * 24);
+            const steps = 80;
+            const stepSize = horizonDays / steps;
 
-        // Track if we've added today's marker
-        let todayAdded = false;
+            // Calculate precise indices for key markers
+            const todayIndex = Math.round(targetDays / stepSize);
+            const expectedIndex = Math.round(expectedDays / stepSize);
 
-        for (let i = 0; i <= horizonDays; i += stepSize) {
-            const dayNumber = Math.round(i);
-            const d = new Date(START_DATE);
-            d.setDate(d.getDate() + dayNumber);
-            const currentProb = (1 - Math.pow(1 - p, dayNumber * daily)) * 100;
-            
-            // Labels now include the year for full date display on mouseover
-            labels.push(d.toLocaleDateString(undefined, {month:'short', day:'numeric', year:'numeric'}));
-            dataValues.push(currentProb.toFixed(1));
+            for (let i = 0; i <= steps; i++) {
+                const dayNumber = i * stepSize;
+                const d = new Date(START_DATE);
+                d.setDate(d.getDate() + Math.round(dayNumber));
+                const currentProb = (1 - Math.pow(1 - p, dayNumber * daily)) * 100;
 
-            const isToday = Math.abs(dayNumber - todayDays) <= 1;
-            const isExpected = Math.abs(dayNumber - expectedDays) < 2;
+                // Labels now include the year for full date display on mouseover
+                labels.push(d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }));
+                dataValues.push(currentProb.toFixed(1));
 
-            if (isToday && !todayAdded) {
-                radii.push(6);
-                colors.push('#ef4444');
-                todayAdded = true;
-            } else if (isExpected) {
-                radii.push(6);
-                colors.push('#3b82f6');
-            } else {
-                radii.push(0);
-                colors.push('#f7931a');
+                if (i === todayIndex) {
+                    radii.push(6);
+                    colors.push('#ef4444');
+                } else if (i === expectedIndex) {
+                    radii.push(6);
+                    colors.push('#3b82f6');
+                } else {
+                    radii.push(0);
+                    colors.push('#f7931a');
+                }
             }
+
+            chart.data.labels = labels;
+            chart.data.datasets[0].data = dataValues;
+            chart.data.datasets[0].pointRadius = radii;
+            chart.data.datasets[0].pointBackgroundColor = colors;
+            chart.update();
         }
 
-        chart.data.labels = labels;
-        chart.data.datasets[0].data = dataValues;
-        chart.data.datasets[0].pointRadius = radii;
-        chart.data.datasets[0].pointBackgroundColor = colors;
-        chart.update();
-    }
-
-    window.onload = () => {
-        initChart();
-        setTargetToMedian(33);
-        ['dailyPlays', 'rarity', 'targetDate'].forEach(id => {
-            document.getElementById(id).addEventListener('input', calculate);
-        });
-        fetchHbitStats();
-        calculate();
-    };
-</script>
+        window.onload = () => {
+            initChart();
+            setTargetToMedian(33);
+            ['dailyPlays', 'rarity', 'targetDate'].forEach(id => {
+                document.getElementById(id).addEventListener('input', calculate);
+            });
+            fetchHbitStats();
+            calculate();
+        };
+    </script>
 </body>
+
 </html>
